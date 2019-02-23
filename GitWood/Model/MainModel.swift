@@ -8,24 +8,30 @@
 
 import Foundation
 
-struct TrendingRepo: Decodable {
+protocol RepoModel {}
+
+struct TrendingResponse: Decodable {
+    let total_count: Int
+    let incomplete_results: Bool
+    let items: [TrendingRepo]
+}
+
+struct TrendingRepo: RepoModel, Decodable {
     let id:Int
-    let owner:String
+    let owner:OwnerModel
     let name:String
     let description: String
-    let avatarUrl: URL
     let stars: Int
-    let language: String
+    let language: String?
     let forks: Int
-    let creationDate: Date
+    let creationDate: String
     let repoPage: URL
     
     enum CodingKeys: String, CodingKey {
         case id
-        case owner = "login"
+        case owner
         case name = "name"
         case description
-        case avatarUrl = "avatar_url"
         case stars = "stargazers_count"
         case language
         case forks
@@ -33,4 +39,15 @@ struct TrendingRepo: Decodable {
         case repoPage = "html_url"
         
     }
+}
+
+struct OwnerModel: Decodable {
+    let login: String
+    let avatarUrl: URL
+    
+    enum CodingKeys: String, CodingKey {
+        case login
+        case avatarUrl = "avatar_url"
+    }
+    
 }
