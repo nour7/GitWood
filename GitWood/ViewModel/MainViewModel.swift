@@ -8,7 +8,8 @@
 
 import Foundation
 
+protocol ViewModel {}
 
-struct MainViewModel {
-    
+struct MainViewModel<S: StorageProtocol>: ViewModel {
+    let storage: S
 }

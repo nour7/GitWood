@@ -8,7 +8,9 @@
 
 import Foundation
 
-protocol RepoModel {}
+protocol RepoModel {
+    var id: Int {get set}
+}
 
 struct TrendingResponse: Decodable {
     let total_count: Int
@@ -17,7 +19,7 @@ struct TrendingResponse: Decodable {
 }
 
 struct TrendingRepo: RepoModel, Decodable {
-    let id:Int
+    var id: Int
     let owner:OwnerModel
     let name:String
     let description: String

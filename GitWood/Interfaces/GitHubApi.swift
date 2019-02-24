@@ -46,7 +46,7 @@ extension APIModel {
         if data.isEmpty {
            return false
         }
-        print(httpResponse.statusCode)
+        
         if 200..<300 ~= httpResponse.statusCode {
             return true
         } else {

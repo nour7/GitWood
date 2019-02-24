@@ -25,6 +25,9 @@
 		14F24C19222158FB0062B784 /* Api3Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F24C18222158FB0062B784 /* Api3Model.swift */; };
 		14F24C1B22215B460062B784 /* ResponseApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F24C1A22215B460062B784 /* ResponseApi.swift */; };
 		14F24C1E222162620062B784 /* API_Interface_Design_v1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 14F24C1D222162620062B784 /* API_Interface_Design_v1.jpeg */; };
+		14F24C212221E7500062B784 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F24C202221E7500062B784 /* Storage.swift */; };
+		14F24C232222034C0062B784 /* TempStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F24C222222034C0062B784 /* TempStorage.swift */; };
+		14F24C25222204B70062B784 /* RealmStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F24C24222204B70062B784 /* RealmStorage.swift */; };
 		B335A1160F26DD0DBE08D378 /* Pods_GitWood.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C55A38CD540E6043A68EC839 /* Pods_GitWood.framework */; };
 		C31AF5C9CB8DFFA738FD8E8C /* Pods_GitWoodTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 576210D81A1C654B97E9E4EA /* Pods_GitWoodTests.framework */; };
 /* End PBXBuildFile section */
@@ -62,6 +65,9 @@
 		14F24C18222158FB0062B784 /* Api3Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api3Model.swift; sourceTree = "<group>"; };
 		14F24C1A22215B460062B784 /* ResponseApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseApi.swift; sourceTree = "<group>"; };
 		14F24C1D222162620062B784 /* API_Interface_Design_v1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = API_Interface_Design_v1.jpeg; sourceTree = "<group>"; };
+		14F24C202221E7500062B784 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		14F24C222222034C0062B784 /* TempStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempStorage.swift; sourceTree = "<group>"; };
+		14F24C24222204B70062B784 /* RealmStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmStorage.swift; sourceTree = "<group>"; };
 		2EA893DA4E59F37FED2C2C1A /* Pods-GitWoodTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitWoodTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GitWoodTests/Pods-GitWoodTests.debug.xcconfig"; sourceTree = "<group>"; };
 		576210D81A1C654B97E9E4EA /* Pods_GitWoodTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitWoodTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		864331473439B6D4CA1C4887 /* Pods-GitWoodTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitWoodTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GitWoodTests/Pods-GitWoodTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -113,6 +119,7 @@
 		14F24BD022210BBF0062B784 /* GitWood */ = {
 			isa = PBXGroup;
 			children = (
+				14F24C1F2221E7340062B784 /* Storage */,
 				14F24C1C222161C70062B784 /* Flowcharts */,
 				14F24C0122213B8E0062B784 /* Extensions */,
 				14F24BFE2221190A0062B784 /* Interfaces */,
@@ -190,6 +197,16 @@
 				14F24C1D222162620062B784 /* API_Interface_Design_v1.jpeg */,
 			);
 			path = Flowcharts;
+			sourceTree = "<group>";
+		};
+		14F24C1F2221E7340062B784 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				14F24C202221E7500062B784 /* Storage.swift */,
+				14F24C222222034C0062B784 /* TempStorage.swift */,
+				14F24C24222204B70062B784 /* RealmStorage.swift */,
+			);
+			path = Storage;
 			sourceTree = "<group>";
 		};
 		5D786F9F14484A8CCD8AEB35 /* Frameworks */ = {
@@ -434,6 +451,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				14F24C19222158FB0062B784 /* Api3Model.swift in Sources */,
+				14F24C25222204B70062B784 /* RealmStorage.swift in Sources */,
 				14F24BD422210BBF0062B784 /* MainViewController.swift in Sources */,
 				14F24BD222210BBF0062B784 /* AppDelegate.swift in Sources */,
 				14F24C1B22215B460062B784 /* ResponseApi.swift in Sources */,
@@ -442,6 +460,8 @@
 				14F24BF622210C5A0062B784 /* MainViewModel.swift in Sources */,
 				14F24C13222149E20062B784 /* RequestApi.swift in Sources */,
 				14F24C0322213BA20062B784 /* DateExt.swift in Sources */,
+				14F24C212221E7500062B784 /* Storage.swift in Sources */,
+				14F24C232222034C0062B784 /* TempStorage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
