@@ -10,27 +10,26 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-protocol ViewModel {
-    
-}
+protocol ViewModel {}
 
 protocol UITableViewModel {
     associatedtype type
     var count: Int {get}
     var items:[type] {get set}
-    var recentItemsIndexPath: [IndexPath] {get}
-    func cellInfoFor(indexPath: IndexPath) -> CellInfoModel
+    var moreItemsIndexPath: [IndexPath] {get}
+    func cellModelFor(indexPath: IndexPath) -> TrendingCellModel
     func rowSelected(at: IndexPath)
 }
-
 
 class MainViewModel<S: StorageProtocol>: UITableViewModel, ViewModel {
     
     typealias repos = TrendingRepo
     private let storage: S
     let apiModel =  API3Model()
-    private var _pageNumber = 1
+    private var _pageNumber = 0
     private let disposeBag = DisposeBag()
+    private var lastIndexPath = IndexPath(item: 0, section: 0)
+   
     
     init(storage: S) {
         self.storage = storage
@@ -42,7 +41,6 @@ class MainViewModel<S: StorageProtocol>: UITableViewModel, ViewModel {
         }
         set(page) {
             _pageNumber = page
-            //model.parameters[.page] = String(page)
         }
     }
     
@@ -53,22 +51,27 @@ class MainViewModel<S: StorageProtocol>: UITableViewModel, ViewModel {
         }
     }
 
-    var recentItemsIndexPath: [IndexPath] {
+    var moreItemsIndexPath: [IndexPath] {
         get {
-           return []
-        }
+            let indexPaths =  items.enumerated()
+                .filter{$0.offset > lastIndexPath.item}
+                .map {IndexPath(item: $0.offset, section: 0)}
+            lastIndexPath.item = items.count - 1
+            return indexPaths
+            }
     }
     
     var items: [repos] = []
     
-    func cellInfoFor(indexPath: IndexPath) -> CellInfoModel {
+    func cellModelFor(indexPath: IndexPath) -> TrendingCellModel {
         
         if items.count < indexPath.item || items.isEmpty {
             fatalError("Items is empty or index is larger than size")
         }
         
-        return CellInfoModel(name: items[indexPath.item].name,
+        return TrendingCellModel(name: items[indexPath.item].name,
                         detailed: items[indexPath.item].description ?? "No description available",
+                        forks:items[indexPath.item].forks,
                         avatarUrl: items[indexPath.item].owner.avatarUrl,
                         isFavorited: items[indexPath.item].isFavorited ?? false)
     }
@@ -77,25 +80,32 @@ class MainViewModel<S: StorageProtocol>: UITableViewModel, ViewModel {
         
     }
     
-    func loadTrendingRepos(period: RequestPeriod)-> Single<Bool> {
-        return Single<Bool>.create { single  in
+    func loadTrendingRepos(period: RequestPeriod)-> Single<ResponseStatus> {
+        return Single<ResponseStatus>.create { single  in
             self.pageNumber += 1
             do {
                 let url =  try self.apiModel.buildRequestUrl(.Trending(period), page: self._pageNumber)
-              //check if the request is cached so you don't loose another api call
+              
+                //check if the request is cached so you don't use another api call
                 
                 let req =  URLRequest(url: url)
                 URLSession.shared.rx.response(request: req).subscribe(onNext: { res in
                     do {
                         guard try self.apiModel.validate(response: res) else {
-                            single(.success(false))
+                            single(.success(.Failure("HTTP response could not be validated")))
                             return
                         }
-                        
+                       
                         let repositories =  try self.apiModel.decode(response: res.data, for: .Trending)
                         let trendingRepos = repositories.map{$0 as! MainViewModel<S>.repos}
-                        self.items.append(contentsOf: trendingRepos)
-                         single(.success(true))
+                        if self.items.isEmpty {
+                            self.items.append(contentsOf: trendingRepos)
+                            single(.success(.Success))
+                        } else {
+                            self.items.append(contentsOf: trendingRepos)
+                            single(.success(.More))
+                        }
+                       
                     }catch {
                         single(.error(error))
                     }

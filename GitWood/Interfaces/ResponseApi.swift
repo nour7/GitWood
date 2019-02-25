@@ -12,3 +12,10 @@ enum ResponseType {
     case Trending
     case Invalid
 }
+
+
+enum ResponseStatus:Equatable {
+    case Success
+    case More
+    case Failure(String)
+}

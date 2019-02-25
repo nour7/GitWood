@@ -11,7 +11,6 @@ import Foundation
 protocol RepoModel {
     var id: Int {get set}
     var cellId: Int? {get set}
-    var isFavorited: Bool? {get set}
 }
 
 struct TrendingResponse: Decodable {

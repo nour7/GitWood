@@ -8,9 +8,10 @@
 
 import Foundation
 
-struct CellInfoModel {
+struct TrendingCellModel {
     let name: String
     let detailed: String
+    let forks: Int
     let avatarUrl: URL
     let isFavorited: Bool
 }
