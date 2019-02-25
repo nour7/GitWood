@@ -23,16 +23,16 @@ class GitHubApiTests: XCTestCase {
     
     func testBuildRequestUrlNotFailing() {
        
-        XCTAssertNoThrow(try model.buildRequestUrl(.Trending(.LastDay))) 
+        XCTAssertNoThrow(try model.buildRequestUrl(.Trending(.LastDay), page: 1))
     }
     
     func testBuildRequestLastDayUrl() {
         
         let baseUrl = "https://api.github.com/search/repositories?q=created:%3E"
         let dateString = Date().periodDateFor(.LastDay)
-        let urlString = URL(string: baseUrl + dateString + "&sort=stars&order=desc")
+        let urlString = URL(string: baseUrl + dateString + "&sort=stars&order=desc&page=1")
         
-        XCTAssertEqual(try model.buildRequestUrl(.Trending(.LastDay)), urlString)
+        XCTAssertEqual(try model.buildRequestUrl(.Trending(.LastDay), page: 1), urlString)
         
     }
     
@@ -40,9 +40,9 @@ class GitHubApiTests: XCTestCase {
         
         let baseUrl = "https://api.github.com/search/repositories?q=created:%3E"
         let dateString = Date().periodDateFor(.LastWeek)
-        let urlString = URL(string: baseUrl + dateString + "&sort=stars&order=desc")
+        let urlString = URL(string: baseUrl + dateString + "&sort=stars&order=desc&page=1")
         
-        XCTAssertEqual(try model.buildRequestUrl(.Trending(.LastWeek)), urlString)
+        XCTAssertEqual(try model.buildRequestUrl(.Trending(.LastWeek), page: 1), urlString)
         
     }
     
@@ -50,9 +50,9 @@ class GitHubApiTests: XCTestCase {
         
         let baseUrl = "https://api.github.com/search/repositories?q=created:%3E"
         let dateString = Date().periodDateFor(.LastMonth)
-        let urlString = URL(string: baseUrl + dateString + "&sort=stars&order=desc")
+        let urlString = URL(string: baseUrl + dateString + "&sort=stars&order=desc&page=1")
         
-        XCTAssertEqual(try model.buildRequestUrl(.Trending(.LastMonth)), urlString)
+        XCTAssertEqual(try model.buildRequestUrl(.Trending(.LastMonth), page: 1), urlString)
         
     }
     

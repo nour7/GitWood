@@ -8,13 +8,12 @@
 
 import Foundation
 
-struct API3Model: APIModel {
+struct API3Model: APIModel {    
     static var version = 3
     var token: String? = nil
     static internal var baseUrl: String = "https://api.github.com/"
-    var page: Int = 1
     
-    func buildRequestUrl(_ requestType: RequestType) throws -> URL {
+    func buildRequestUrl(_ requestType: RequestType, page: Int) throws -> URL {
         
         let requestPathExt = requestType.urlPathExt
         let apiUrl = API3Model.baseUrl.appending(requestPathExt)
@@ -29,10 +28,13 @@ struct API3Model: APIModel {
             
         }
         
+        
         requestUrlComponents.queryItems?.append(URLQueryItem(name: "sort", value: RequestSort.Stars.rawValue))
         
         requestUrlComponents.queryItems?.append(URLQueryItem(name: "order", value: RequestOrder.Desc.rawValue))
         
+        
+        requestUrlComponents.queryItems?.append(URLQueryItem(name: "page", value: String(page)))
         
         guard let url = requestUrlComponents.url else {
             throw ApiError.ErrorConstrcutURL("Could not build url from components")
@@ -41,14 +43,14 @@ struct API3Model: APIModel {
         return url
     }
     
-    func decode(response: Data, for requestType: ResponseType) throws -> [RepoModel]? {
+    func decode(response: Data, for requestType: ResponseType) throws -> [RepoModel] {
         
         do {
             switch requestType {
             case .Trending:
                 return try JSONDecoder().decode(TrendingResponse.self, from: response).items
             default:
-                return nil
+                return []
             }
         } catch {
             throw ApiError.ErrorDecodeResponse("Decoding failed \(error)")

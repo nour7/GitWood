@@ -31,10 +31,9 @@ enum ApiVersion {
 protocol APIModel {
     static var version: Int {get}
     var token: String? {get}
-    var page:Int {get set}
     static var baseUrl:String {get}
-    func buildRequestUrl(_ requestType: RequestType) throws -> URL
-    func decode(response: Data, for responseType: ResponseType) throws -> [RepoModel]?
+    func buildRequestUrl(_ requestType: RequestType, page: Int) throws -> URL
+    func decode(response: Data, for responseType: ResponseType) throws -> [RepoModel]
     func validate(response: (HTTPURLResponse,Data)) throws -> Bool
 }
 

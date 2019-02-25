@@ -28,6 +28,9 @@
 		14F24C212221E7500062B784 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F24C202221E7500062B784 /* Storage.swift */; };
 		14F24C232222034C0062B784 /* TempStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F24C222222034C0062B784 /* TempStorage.swift */; };
 		14F24C25222204B70062B784 /* RealmStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F24C24222204B70062B784 /* RealmStorage.swift */; };
+		14F24C272223E20C0062B784 /* RepoTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F24C262223E20C0062B784 /* RepoTableViewDelegate.swift */; };
+		14F24C2C222400A10062B784 /* MainViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F24C2B222400A10062B784 /* MainViewModelTests.swift */; };
+		14F24C2E22240CF20062B784 /* CellInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F24C2D22240CF20062B784 /* CellInfoModel.swift */; };
 		B335A1160F26DD0DBE08D378 /* Pods_GitWood.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C55A38CD540E6043A68EC839 /* Pods_GitWood.framework */; };
 		C31AF5C9CB8DFFA738FD8E8C /* Pods_GitWoodTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 576210D81A1C654B97E9E4EA /* Pods_GitWoodTests.framework */; };
 /* End PBXBuildFile section */
@@ -68,6 +71,9 @@
 		14F24C202221E7500062B784 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		14F24C222222034C0062B784 /* TempStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempStorage.swift; sourceTree = "<group>"; };
 		14F24C24222204B70062B784 /* RealmStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmStorage.swift; sourceTree = "<group>"; };
+		14F24C262223E20C0062B784 /* RepoTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoTableViewDelegate.swift; sourceTree = "<group>"; };
+		14F24C2B222400A10062B784 /* MainViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModelTests.swift; sourceTree = "<group>"; };
+		14F24C2D22240CF20062B784 /* CellInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellInfoModel.swift; sourceTree = "<group>"; };
 		2EA893DA4E59F37FED2C2C1A /* Pods-GitWoodTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitWoodTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GitWoodTests/Pods-GitWoodTests.debug.xcconfig"; sourceTree = "<group>"; };
 		576210D81A1C654B97E9E4EA /* Pods_GitWoodTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitWoodTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		864331473439B6D4CA1C4887 /* Pods-GitWoodTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitWoodTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GitWoodTests/Pods-GitWoodTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -119,6 +125,7 @@
 		14F24BD022210BBF0062B784 /* GitWood */ = {
 			isa = PBXGroup;
 			children = (
+				14F24C282223F0480062B784 /* Views */,
 				14F24C1F2221E7340062B784 /* Storage */,
 				14F24C1C222161C70062B784 /* Flowcharts */,
 				14F24C0122213B8E0062B784 /* Extensions */,
@@ -144,6 +151,7 @@
 				14F24C0422213D640062B784 /* DateExtensionTest.swift */,
 				14F24C102221498B0062B784 /* GitHubApiTests.swift */,
 				14F24C1622214C3F0062B784 /* RequestApiTests.swift */,
+				14F24C2B222400A10062B784 /* MainViewModelTests.swift */,
 			);
 			path = GitWoodTests;
 			sourceTree = "<group>";
@@ -160,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				14F24BF722210C970062B784 /* MainModel.swift */,
+				14F24C2D22240CF20062B784 /* CellInfoModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -168,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				14F24BD322210BBF0062B784 /* MainViewController.swift */,
+				14F24C262223E20C0062B784 /* RepoTableViewDelegate.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -207,6 +217,13 @@
 				14F24C24222204B70062B784 /* RealmStorage.swift */,
 			);
 			path = Storage;
+			sourceTree = "<group>";
+		};
+		14F24C282223F0480062B784 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		5D786F9F14484A8CCD8AEB35 /* Frameworks */ = {
@@ -410,8 +427,10 @@
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/RxBlocking/RxBlocking.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/RxTest/RxTest.framework",
 				"${BUILT_PRODUCTS_DIR}/StanwoodCore/StanwoodCore.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -419,8 +438,10 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxBlocking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxTest.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StanwoodCore.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -457,10 +478,12 @@
 				14F24C1B22215B460062B784 /* ResponseApi.swift in Sources */,
 				14F24C0722213EB90062B784 /* MainModel.swift in Sources */,
 				14F24C002221191C0062B784 /* GitHubApi.swift in Sources */,
+				14F24C2E22240CF20062B784 /* CellInfoModel.swift in Sources */,
 				14F24BF622210C5A0062B784 /* MainViewModel.swift in Sources */,
 				14F24C13222149E20062B784 /* RequestApi.swift in Sources */,
 				14F24C0322213BA20062B784 /* DateExt.swift in Sources */,
 				14F24C212221E7500062B784 /* Storage.swift in Sources */,
+				14F24C272223E20C0062B784 /* RepoTableViewDelegate.swift in Sources */,
 				14F24C232222034C0062B784 /* TempStorage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -473,6 +496,7 @@
 				14F24BE722210BC30062B784 /* GitWoodTests.swift in Sources */,
 				14F24C1722214C3F0062B784 /* RequestApiTests.swift in Sources */,
 				14F24C0522213D640062B784 /* DateExtensionTest.swift in Sources */,
+				14F24C2C222400A10062B784 /* MainViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

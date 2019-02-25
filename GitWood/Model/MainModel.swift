@@ -10,6 +10,8 @@ import Foundation
 
 protocol RepoModel {
     var id: Int {get set}
+    var cellId: Int? {get set}
+    var isFavorited: Bool? {get set}
 }
 
 struct TrendingResponse: Decodable {
@@ -20,14 +22,17 @@ struct TrendingResponse: Decodable {
 
 struct TrendingRepo: RepoModel, Decodable {
     var id: Int
+    var cellId: Int? = nil
+    var isFavorited: Bool? = nil
     let owner:OwnerModel
     let name:String
-    let description: String
+    let description: String?
     let stars: Int
     let language: String?
     let forks: Int
     let creationDate: String
     let repoPage: URL
+    
     
     enum CodingKeys: String, CodingKey {
         case id
