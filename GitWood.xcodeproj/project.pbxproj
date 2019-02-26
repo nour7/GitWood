@@ -34,6 +34,11 @@
 		14F24C35222484200062B784 /* TrendingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F24C33222484200062B784 /* TrendingTableViewCell.swift */; };
 		14F24C36222484200062B784 /* TrendingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14F24C34222484200062B784 /* TrendingTableViewCell.xib */; };
 		14F24C382224ADBB0062B784 /* IntExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F24C372224ADBB0062B784 /* IntExt.swift */; };
+		14F24C6822251C6D0062B784 /* DetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F24C6722251C6D0062B784 /* DetailedViewController.swift */; };
+		14F24C6A22251CAB0062B784 /* ExDetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F24C6922251CAB0062B784 /* ExDetailedViewController.swift */; };
+		14F24C6C22251D150062B784 /* DetailedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F24C6B22251D150062B784 /* DetailedViewModel.swift */; };
+		14F24C7022252A360062B784 /* DetailedTableRowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F24C6F22252A360062B784 /* DetailedTableRowModel.swift */; };
+		14F24C72222546BB0062B784 /* DetailedViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F24C71222546BB0062B784 /* DetailedViewModelTests.swift */; };
 		B335A1160F26DD0DBE08D378 /* Pods_GitWood.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C55A38CD540E6043A68EC839 /* Pods_GitWood.framework */; };
 		C31AF5C9CB8DFFA738FD8E8C /* Pods_GitWoodTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 576210D81A1C654B97E9E4EA /* Pods_GitWoodTests.framework */; };
 /* End PBXBuildFile section */
@@ -80,6 +85,11 @@
 		14F24C33222484200062B784 /* TrendingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingTableViewCell.swift; sourceTree = "<group>"; };
 		14F24C34222484200062B784 /* TrendingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrendingTableViewCell.xib; sourceTree = "<group>"; };
 		14F24C372224ADBB0062B784 /* IntExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExt.swift; sourceTree = "<group>"; };
+		14F24C6722251C6D0062B784 /* DetailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedViewController.swift; sourceTree = "<group>"; };
+		14F24C6922251CAB0062B784 /* ExDetailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExDetailedViewController.swift; sourceTree = "<group>"; };
+		14F24C6B22251D150062B784 /* DetailedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedViewModel.swift; sourceTree = "<group>"; };
+		14F24C6F22252A360062B784 /* DetailedTableRowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedTableRowModel.swift; sourceTree = "<group>"; };
+		14F24C71222546BB0062B784 /* DetailedViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedViewModelTests.swift; sourceTree = "<group>"; };
 		2EA893DA4E59F37FED2C2C1A /* Pods-GitWoodTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitWoodTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GitWoodTests/Pods-GitWoodTests.debug.xcconfig"; sourceTree = "<group>"; };
 		576210D81A1C654B97E9E4EA /* Pods_GitWoodTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitWoodTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		864331473439B6D4CA1C4887 /* Pods-GitWoodTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitWoodTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GitWoodTests/Pods-GitWoodTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -158,6 +168,7 @@
 				14F24C102221498B0062B784 /* GitHubApiTests.swift */,
 				14F24C1622214C3F0062B784 /* RequestApiTests.swift */,
 				14F24C2B222400A10062B784 /* MainViewModelTests.swift */,
+				14F24C71222546BB0062B784 /* DetailedViewModelTests.swift */,
 			);
 			path = GitWoodTests;
 			sourceTree = "<group>";
@@ -166,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				14F24BF522210C5A0062B784 /* MainViewModel.swift */,
+				14F24C6B22251D150062B784 /* DetailedViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -175,6 +187,7 @@
 			children = (
 				14F24BF722210C970062B784 /* MainModel.swift */,
 				14F24C2D22240CF20062B784 /* TrendingCellModel.swift */,
+				14F24C6F22252A360062B784 /* DetailedTableRowModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -184,6 +197,8 @@
 			children = (
 				14F24BD322210BBF0062B784 /* MainViewController.swift */,
 				14F24C31222480A00062B784 /* ExtMainViewController.swift */,
+				14F24C6722251C6D0062B784 /* DetailedViewController.swift */,
+				14F24C6922251CAB0062B784 /* ExDetailedViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -483,12 +498,16 @@
 			files = (
 				14F24C19222158FB0062B784 /* Api3Model.swift in Sources */,
 				14F24C25222204B70062B784 /* RealmStorage.swift in Sources */,
+				14F24C6C22251D150062B784 /* DetailedViewModel.swift in Sources */,
+				14F24C7022252A360062B784 /* DetailedTableRowModel.swift in Sources */,
 				14F24BD422210BBF0062B784 /* MainViewController.swift in Sources */,
 				14F24C382224ADBB0062B784 /* IntExt.swift in Sources */,
 				14F24BD222210BBF0062B784 /* AppDelegate.swift in Sources */,
 				14F24C35222484200062B784 /* TrendingTableViewCell.swift in Sources */,
 				14F24C1B22215B460062B784 /* ResponseApi.swift in Sources */,
 				14F24C0722213EB90062B784 /* MainModel.swift in Sources */,
+				14F24C6822251C6D0062B784 /* DetailedViewController.swift in Sources */,
+				14F24C6A22251CAB0062B784 /* ExDetailedViewController.swift in Sources */,
 				14F24C002221191C0062B784 /* GitHubApi.swift in Sources */,
 				14F24C2E22240CF20062B784 /* TrendingCellModel.swift in Sources */,
 				14F24C32222480A00062B784 /* ExtMainViewController.swift in Sources */,
@@ -504,6 +523,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14F24C72222546BB0062B784 /* DetailedViewModelTests.swift in Sources */,
 				14F24C112221498B0062B784 /* GitHubApiTests.swift in Sources */,
 				14F24BE722210BC30062B784 /* GitWoodTests.swift in Sources */,
 				14F24C1722214C3F0062B784 /* RequestApiTests.swift in Sources */,

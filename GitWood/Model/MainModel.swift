@@ -10,18 +10,16 @@ import Foundation
 
 protocol RepoModel {
     var id: Int {get set}
-    var cellId: Int? {get set}
 }
 
-struct TrendingResponse: Decodable {
+struct TrendingResponse: Codable {
     let total_count: Int
     let incomplete_results: Bool
     let items: [TrendingRepo]
 }
 
-struct TrendingRepo: RepoModel, Decodable {
+struct TrendingRepo: RepoModel, Codable {
     var id: Int
-    var cellId: Int? = nil
     var isFavorited: Bool? = nil
     let owner:OwnerModel
     let name:String
@@ -47,7 +45,7 @@ struct TrendingRepo: RepoModel, Decodable {
     }
 }
 
-struct OwnerModel: Decodable {
+struct OwnerModel: Codable {
     let login: String
     let avatarUrl: URL
     

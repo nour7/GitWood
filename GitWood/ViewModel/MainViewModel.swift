@@ -18,7 +18,6 @@ protocol UITableViewModel {
     var items:[type] {get set}
     var moreItemsIndexPath: [IndexPath] {get}
     func cellModelFor(indexPath: IndexPath) -> TrendingCellModel
-    func rowSelected(at: IndexPath)
 }
 
 class MainViewModel<S: StorageProtocol>: UITableViewModel, ViewModel {
@@ -76,9 +75,7 @@ class MainViewModel<S: StorageProtocol>: UITableViewModel, ViewModel {
                         isFavorited: items[indexPath.item].isFavorited ?? false)
     }
     
-    func rowSelected(at: IndexPath) {
-        
-    }
+   
     
     func loadTrendingRepos(period: RequestPeriod)-> Single<ResponseStatus> {
         return Single<ResponseStatus>.create { single  in

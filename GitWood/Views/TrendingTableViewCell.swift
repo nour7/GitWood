@@ -35,7 +35,7 @@ class TrendingTableViewCell: UITableViewCell {
     func configure(model: TrendingCellModel) {
         self.detailedLabel.text = model.detailed
         self.nameLabel.text = model.name
-        self.forksLabel.text = model.forks.forksFormatted
+        self.forksLabel.text = model.forks.numberFormatted
         self.avatarImageView.kf.setImage(with: model.avatarUrl)
         self.starButton.imageView?.image = (model.isFavorited) ? UIImage(named: "star_toggle_on"): UIImage(named: "star_toggle_off")
         self.favoriteState = model.isFavorited

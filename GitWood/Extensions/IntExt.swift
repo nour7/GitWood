@@ -9,7 +9,7 @@
 import Foundation
 
 extension Int {
-    var forksFormatted: String {
+    var numberFormatted: String {
        // convert number to K, M such as 21k
         return String(format: "%d", locale: Locale.current,self)
     }

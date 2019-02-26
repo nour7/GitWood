@@ -52,7 +52,7 @@ class MainViewModelTests: XCTestCase {
         
         mainViewModel.items = try! mainViewModel.apiModel.decode(response: data, for: .Trending) as? [TrendingRepo] ?? []
 
-        let testCellInfo = TrendingCellModel(name: "ASPNETSelfCreatedTokenAuthExample", detailed: "Example of how to protect an ASP.NET Core (1.0.1) Web API using simple self-created JWT bearer tokens.", avatarUrl: URL(string: "https://avatars3.githubusercontent.com/u/7505593?v=4")!, isFavorited: false)
+        let testCellInfo = TrendingCellModel(name: "ASPNETSelfCreatedTokenAuthExample", detailed: "Example of how to protect an ASP.NET Core (1.0.1) Web API using simple self-created JWT bearer tokens.", forks: 200, avatarUrl: URL(string: "https://avatars3.githubusercontent.com/u/7505593?v=4")!, isFavorited: false)
         
         let cell = mainViewModel.cellModelFor(indexPath: IndexPath(item: 0, section: 0))
         XCTAssertEqual(cell.name, testCellInfo.name)

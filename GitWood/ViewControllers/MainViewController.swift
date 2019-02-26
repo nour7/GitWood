@@ -10,6 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+
 class MainViewController: UIViewController, UITableViewDataSourcePrefetching {
    
     @IBOutlet weak var tableView: UITableView!
@@ -21,12 +22,16 @@ class MainViewController: UIViewController, UITableViewDataSourcePrefetching {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+      
         viewModel = MainViewModel(storage: TempStorage())
        self.tableView.register(UINib.init(nibName: "TrendingTableViewCell", bundle: nil), forCellReuseIdentifier: "IdTrendingCell")
         
         loadTrendingReposAsync()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+          navigationController?.setNavigationBarHidden(true, animated: false)
+    }
     
     func loadTrendingReposAsync() {
         viewModel.loadTrendingRepos(period: .LastWeek).observeOn(MainScheduler.instance).subscribe(onSuccess: { status in
@@ -53,9 +58,17 @@ class MainViewController: UIViewController, UITableViewDataSourcePrefetching {
         if !stopPrefetching {
             if indexPaths.last!.item >= (viewModel.count - prefetchOffset) {
                 stopPrefetching = true
-                //loadTrendingReposAsync()
+                loadTrendingReposAsync()
             }
         }
+    }
+    
+    
+    func rowSelected(at indexPath: IndexPath) {
+        
+        let viewController =  self.storyboard?.instantiateViewController(withIdentifier: "DetailedViewController") as! DetailedViewController
+        viewController.repo = viewModel.items[indexPath.item]
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
 }

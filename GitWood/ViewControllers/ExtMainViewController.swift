@@ -13,6 +13,7 @@ let CellIdentifier = "IdTrendingCell"
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource, TrendingCellProtocol {
     
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.count
     }
@@ -32,7 +33,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource, Trendi
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel.rowSelected(at: indexPath)
+        self.rowSelected(at: indexPath)
     }
     
     func onToggleFavoriteButton() {
