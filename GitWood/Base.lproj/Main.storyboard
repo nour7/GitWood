@@ -89,6 +89,9 @@
                                                 <segment title="Week"/>
                                                 <segment title="Month"/>
                                             </segments>
+                                            <connections>
+                                                <action selector="onSegmentValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="MxV-Le-45N"/>
+                                            </connections>
                                         </segmentedControl>
                                     </navigationItem>
                                 </items>

@@ -33,6 +33,9 @@ class DetailedViewController: UIViewController {
     }
     
     @IBAction func openRepoURL(_ sender: UIButton) {
+        if let repoUrl = repo?.repoPage {
+            UIApplication.shared.open(repoUrl)
+        }
     }
     
 }

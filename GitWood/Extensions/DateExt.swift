@@ -17,7 +17,7 @@ extension Date {
         
         switch period {
         case .LastDay:
-            date = Calendar.current.date(byAdding: .day, value: -1, to: specifiedDate)
+            date = Calendar.current.date(byAdding: .hour, value: -24, to: specifiedDate)
         case .LastWeek:
             date = Calendar.current.date(byAdding: .day, value: -7, to: specifiedDate)
         case .LastMonth:

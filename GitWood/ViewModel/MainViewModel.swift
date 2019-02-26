@@ -64,6 +64,8 @@ class MainViewModel<S: StorageProtocol>: UITableViewModelProtocol, ViewModel {
     
     var items: [repos] = []
     
+    
+    
     func cellModelFor(indexPath: IndexPath) -> cell {
         
         if items.count < indexPath.item || items.isEmpty {
@@ -151,6 +153,11 @@ class MainViewModel<S: StorageProtocol>: UITableViewModelProtocol, ViewModel {
         }
         
         return insertOperation
+    }
+    
+    func reset() {
+        items = []
+        lastIndexPathItem = -1
     }
     
 }

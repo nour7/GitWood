@@ -9,6 +9,12 @@
 import Foundation
 import UIKit
 
+private extension IndexPath {
+    var cacheKey: String {
+        return String(describing: self)
+    }
+}
+
 let CellIdentifier = "IdTrendingCell"
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource, TrendingCellProtocol {
@@ -34,6 +40,14 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource, Trendi
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.rowSelected(at: indexPath)
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cellCachedHeight[indexPath.cacheKey] = cell.frame.size.height
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return cellCachedHeight[indexPath.cacheKey] ?? UITableView.automaticDimension
     }
     
     func onToggleFavoriteButton(at indexPath: IndexPath) {
