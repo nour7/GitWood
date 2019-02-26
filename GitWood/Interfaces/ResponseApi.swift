@@ -17,5 +17,6 @@ enum ResponseType {
 enum ResponseStatus:Equatable {
     case Success
     case More
+    case Empty
     case Failure(String)
 }

@@ -9,11 +9,10 @@
 import Foundation
 
 class TempStorage:StorageProtocol {
-    typealias output = Bool
     typealias queryInput = QueryType
     var cache:[Int: RepoModel] = [:]
     
-    func insertOrUpdate(type: StorageRecords, records: [RepoModel]) -> output {
+    func insertOrUpdate(type: StorageRecords, records: [RepoModel]) -> Bool {
         for record in records {
             if cache.keys.contains(record.id) {
                 cache.updateValue(record, forKey: record.id)
@@ -25,7 +24,7 @@ class TempStorage:StorageProtocol {
         return true
     }
     
-    func remove(type: StorageRecords, id: Int) -> output {
+    func remove(type: StorageRecords, id: Int) -> Bool {
         
         if cache.keys.contains(id) {
             if cache.removeValue(forKey: id) == nil {

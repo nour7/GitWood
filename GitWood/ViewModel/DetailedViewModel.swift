@@ -18,7 +18,7 @@ class DetailedViewModel: ViewModel {
     init(model: TrendingRepo?) {
         self.repoModel = model
         if model != nil {
-            items = self.encodeModel().map(self.serialize).compactMap{$0}
+            items = self.encodeModel().map(self.serialize).compactMap{$0}.sorted(by: { $0.icon > $1.icon })
         }
     }
     

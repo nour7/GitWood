@@ -9,9 +9,11 @@
 import Foundation
 
 struct TrendingCellModel {
+    let id: Int
     let name: String
     let detailed: String
     let forks: Int
+    let stars: Int
     let avatarUrl: URL
     let isFavorited: Bool
 }

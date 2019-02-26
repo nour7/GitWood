@@ -24,7 +24,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource, Trendi
         
         if viewModel.count > indexPath.item {
             let cellModel = viewModel.cellModelFor(indexPath: indexPath)
-            cell?.configure(model: cellModel)
+            cell?.configure(model: cellModel, at: indexPath)
             cell?.delegate = self
         }
         
@@ -36,7 +36,26 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource, Trendi
         self.rowSelected(at: indexPath)
     }
     
-    func onToggleFavoriteButton() {
+    func onToggleFavoriteButton(at indexPath: IndexPath) {
+        
+        if let _ =  viewModel.items[indexPath.item].isFavorited {
+             let removeOperation = viewModel.removeFavoriteRepo(at: indexPath)
+        
+            if !removeOperation {
+                //show friendly error msg to user
+            } else {
+                tableView.reloadRows(at: [indexPath], with: .fade)
+            }
+          
+        } else  {
+            let insertOperation = viewModel.removeFavoriteRepo(at: indexPath)
+            
+            if !insertOperation {
+                //show friendly error msg to user
+            } else {
+                tableView.reloadRows(at: [indexPath], with: .fade)
+            }
+        }
         
     }
     

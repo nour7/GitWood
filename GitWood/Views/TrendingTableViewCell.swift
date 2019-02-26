@@ -10,13 +10,13 @@ import UIKit
 import Kingfisher
 
 protocol TrendingCellProtocol {
-    func onToggleFavoriteButton()
+    func onToggleFavoriteButton(at indexPath: IndexPath)
 }
 
 class TrendingTableViewCell: UITableViewCell {
     var delegate: TrendingCellProtocol? = nil
     var favoriteState: Bool = false
-    
+    var indexPath: IndexPath = IndexPath(item: -1, section: 0)
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var forksLabel: UILabel!
     @IBOutlet weak var detailedLabel: UILabel!
@@ -32,20 +32,22 @@ class TrendingTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func configure(model: TrendingCellModel) {
+    func configure(model: TrendingCellModel, at indexPath: IndexPath) {
         self.detailedLabel.text = model.detailed
         self.nameLabel.text = model.name
-        self.forksLabel.text = model.forks.numberFormatted
+        self.forksLabel.text = model.stars.numberFormatted
         self.avatarImageView.kf.setImage(with: model.avatarUrl)
-        self.starButton.imageView?.image = (model.isFavorited) ? UIImage(named: "star_toggle_on"): UIImage(named: "star_toggle_off")
+        self.starButton.setImage((model.isFavorited) ? UIImage(named: "star_toggle_on"): UIImage(named: "star_toggle_off"), for: .normal)
         self.favoriteState = model.isFavorited
+        self.indexPath = indexPath
     }
     
     
     @IBAction func toggleFavoriteButton(_ sender: UIButton) {
-        delegate?.onToggleFavoriteButton()
+        delegate?.onToggleFavoriteButton(at: indexPath)
         favoriteState = !favoriteState
-        self.starButton.imageView?.image = (favoriteState) ? UIImage(named: "star_toggle_on"): UIImage(named: "star_toggle_off")
+         self.starButton.setImage((favoriteState) ? UIImage(named: "star_toggle_on"): UIImage(named: "star_toggle_on"), for: .normal)
+        
     }
     
 }

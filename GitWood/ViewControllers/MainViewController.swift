@@ -12,7 +12,7 @@ import RxCocoa
 
 
 class MainViewController: UIViewController, UITableViewDataSourcePrefetching {
-   
+    
     @IBOutlet weak var tableView: UITableView!
     
     var viewModel : MainViewModel<TempStorage>!
@@ -22,35 +22,38 @@ class MainViewController: UIViewController, UITableViewDataSourcePrefetching {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      
+        
         viewModel = MainViewModel(storage: TempStorage())
-       self.tableView.register(UINib.init(nibName: "TrendingTableViewCell", bundle: nil), forCellReuseIdentifier: "IdTrendingCell")
+        self.tableView.register(UINib.init(nibName: "TrendingTableViewCell", bundle: nil), forCellReuseIdentifier: "IdTrendingCell")
         
         loadTrendingReposAsync()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-          navigationController?.setNavigationBarHidden(true, animated: false)
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     func loadTrendingReposAsync() {
         viewModel.loadTrendingRepos(period: .LastWeek).observeOn(MainScheduler.instance).subscribe(onSuccess: { status in
-                switch status {
-                    case .Success:
-                        self.tableView.reloadData()
-                        self.stopPrefetching = false
-                    case .More:
-                        self.tableView.insertRows(at: self.viewModel.moreItemsIndexPath, with: .automatic)
-                        self.stopPrefetching = false
-                    case .Failure(let errorMsg):
-                        self.stopPrefetching = true
-                        self.tableView.reloadData()
-                }
+            switch status {
+            case .Success:
+                self.tableView.reloadData()
+                self.stopPrefetching = false
+            case .More:
+                self.tableView.insertRows(at: self.viewModel.moreItemsIndexPath, with: .automatic)
+                self.stopPrefetching = false
+            case .Empty:
+                //show nice notification message to the user
+                break
+            case .Failure(let errorMsg):
+                self.stopPrefetching = true
+                self.tableView.reloadData()
+            }
             
         }, onError: { err in
             self.tableView.reloadData()
         }).disposed(by: disposeBag)
-    
+        
     }
     
     

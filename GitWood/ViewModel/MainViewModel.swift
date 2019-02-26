@@ -12,23 +12,25 @@ import RxCocoa
 
 protocol ViewModel {}
 
-protocol UITableViewModel {
+protocol UITableViewModelProtocol {
     associatedtype type
+    associatedtype cell
     var count: Int {get}
     var items:[type] {get set}
     var moreItemsIndexPath: [IndexPath] {get}
-    func cellModelFor(indexPath: IndexPath) -> TrendingCellModel
+    func cellModelFor(indexPath: IndexPath) -> cell
 }
 
-class MainViewModel<S: StorageProtocol>: UITableViewModel, ViewModel {
+class MainViewModel<S: StorageProtocol>: UITableViewModelProtocol, ViewModel {
     
     typealias repos = TrendingRepo
-    private let storage: S
+    typealias cell = TrendingCellModel
+    
+    let storage: S
     let apiModel =  API3Model()
     private var _pageNumber = 0
     private let disposeBag = DisposeBag()
-    private var lastIndexPath = IndexPath(item: 0, section: 0)
-   
+    private var lastIndexPathItem: Int = -1
     
     init(storage: S) {
         self.storage = storage
@@ -53,24 +55,25 @@ class MainViewModel<S: StorageProtocol>: UITableViewModel, ViewModel {
     var moreItemsIndexPath: [IndexPath] {
         get {
             let indexPaths =  items.enumerated()
-                .filter{$0.offset > lastIndexPath.item}
+                .filter{$0.offset > lastIndexPathItem}
                 .map {IndexPath(item: $0.offset, section: 0)}
-            lastIndexPath.item = items.count - 1
+            self.lastIndexPathItem = self.items.count - 1
             return indexPaths
             }
     }
     
     var items: [repos] = []
     
-    func cellModelFor(indexPath: IndexPath) -> TrendingCellModel {
+    func cellModelFor(indexPath: IndexPath) -> cell {
         
         if items.count < indexPath.item || items.isEmpty {
             fatalError("Items is empty or index is larger than size")
         }
         
-        return TrendingCellModel(name: items[indexPath.item].name,
+        return TrendingCellModel(id: 0, name: items[indexPath.item].name,
                         detailed: items[indexPath.item].description ?? "No description available",
                         forks:items[indexPath.item].forks,
+                        stars:items[indexPath.item].stars,
                         avatarUrl: items[indexPath.item].owner.avatarUrl,
                         isFavorited: items[indexPath.item].isFavorited ?? false)
     }
@@ -95,12 +98,19 @@ class MainViewModel<S: StorageProtocol>: UITableViewModel, ViewModel {
                        
                         let repositories =  try self.apiModel.decode(response: res.data, for: .Trending)
                         let trendingRepos = repositories.map{$0 as! MainViewModel<S>.repos}
-                        if self.items.isEmpty {
-                            self.items.append(contentsOf: trendingRepos)
-                            single(.success(.Success))
+                        let sorted =  trendingRepos.sorted(by: { $0.stars > $1.stars })
+                        
+                        if sorted.isEmpty {
+                            single(.success(.Empty))
                         } else {
-                            self.items.append(contentsOf: trendingRepos)
-                            single(.success(.More))
+                            if self.items.isEmpty {
+                                self.items.append(contentsOf: sorted)
+                                self.lastIndexPathItem = self.items.count - 1
+                                single(.success(.Success))
+                            } else {
+                                self.items.append(contentsOf: sorted)
+                                single(.success(.More))
+                            }
                         }
                        
                     }catch {
@@ -117,6 +127,30 @@ class MainViewModel<S: StorageProtocol>: UITableViewModel, ViewModel {
             
             return Disposables.create()
         }
+    }
+    
+    func removeFavoriteRepo(at indexPath: IndexPath) -> Bool {
+        
+        let removeOperation = storage.remove(type: .Favorite, id: items[indexPath.item].id)
+        
+        if !removeOperation {
+            return false
+        } else {
+            items[indexPath.item].isFavorited = true
+            return true
+        }
+        
+    }
+    
+    func insertOrUpdateRepo(at indexPath: IndexPath) -> Bool{
+        
+        let insertOperation = storage.insertOrUpdate(type: .Favorite, records: [items[indexPath.item]])
+        
+        if insertOperation {
+            items[indexPath.item].isFavorited = true
+        }
+        
+        return insertOperation
     }
     
 }
