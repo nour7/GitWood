@@ -17,7 +17,6 @@ protocol UITableViewModelProtocol {
     associatedtype cell
     var count: Int {get}
     var items:[type] {get set}
-    var moreItemsIndexPath: [IndexPath] {get}
     func cellModelFor(indexPath: IndexPath) -> cell
 }
 
@@ -72,7 +71,7 @@ class MainViewModel<S: StorageProtocol>: UITableViewModelProtocol, ViewModel {
             fatalError("Items is empty or index is larger than size")
         }
         
-        return TrendingCellModel(id: 0, name: items[indexPath.item].name,
+        return TrendingCellModel(id: items[indexPath.item].id, name: items[indexPath.item].name,
                         detailed: items[indexPath.item].description ?? "No description available",
                         forks:items[indexPath.item].forks,
                         stars:items[indexPath.item].stars,

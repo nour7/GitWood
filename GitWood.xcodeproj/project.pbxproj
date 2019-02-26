@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		145D4C712225D53C0095315D /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145D4C702225D53C0095315D /* FavoriteViewController.swift */; };
+		145D4C732225D5840095315D /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145D4C722225D5840095315D /* FavoriteViewModel.swift */; };
+		145D4C752225D9560095315D /* ExFavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145D4C742225D9560095315D /* ExFavoriteViewController.swift */; };
+		145D4C772225ED2C0095315D /* RealmStorageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145D4C762225ED2C0095315D /* RealmStorageTest.swift */; };
 		14F24BD222210BBF0062B784 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F24BD122210BBF0062B784 /* AppDelegate.swift */; };
 		14F24BD422210BBF0062B784 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F24BD322210BBF0062B784 /* MainViewController.swift */; };
 		14F24BD722210BBF0062B784 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14F24BD522210BBF0062B784 /* Main.storyboard */; };
@@ -54,6 +58,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		145D4C702225D53C0095315D /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
+		145D4C722225D5840095315D /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
+		145D4C742225D9560095315D /* ExFavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExFavoriteViewController.swift; sourceTree = "<group>"; };
+		145D4C762225ED2C0095315D /* RealmStorageTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmStorageTest.swift; sourceTree = "<group>"; };
 		14F24BCE22210BBF0062B784 /* GitWood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitWood.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14F24BD122210BBF0062B784 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14F24BD322210BBF0062B784 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -169,6 +177,7 @@
 				14F24C1622214C3F0062B784 /* RequestApiTests.swift */,
 				14F24C2B222400A10062B784 /* MainViewModelTests.swift */,
 				14F24C71222546BB0062B784 /* DetailedViewModelTests.swift */,
+				145D4C762225ED2C0095315D /* RealmStorageTest.swift */,
 			);
 			path = GitWoodTests;
 			sourceTree = "<group>";
@@ -178,6 +187,7 @@
 			children = (
 				14F24BF522210C5A0062B784 /* MainViewModel.swift */,
 				14F24C6B22251D150062B784 /* DetailedViewModel.swift */,
+				145D4C722225D5840095315D /* FavoriteViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -199,6 +209,8 @@
 				14F24C31222480A00062B784 /* ExtMainViewController.swift */,
 				14F24C6722251C6D0062B784 /* DetailedViewController.swift */,
 				14F24C6922251CAB0062B784 /* ExDetailedViewController.swift */,
+				145D4C702225D53C0095315D /* FavoriteViewController.swift */,
+				145D4C742225D9560095315D /* ExFavoriteViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -505,10 +517,13 @@
 				14F24C7022252A360062B784 /* DetailedTableRowModel.swift in Sources */,
 				14F24BD422210BBF0062B784 /* MainViewController.swift in Sources */,
 				14F24C382224ADBB0062B784 /* IntExt.swift in Sources */,
+				145D4C752225D9560095315D /* ExFavoriteViewController.swift in Sources */,
 				14F24BD222210BBF0062B784 /* AppDelegate.swift in Sources */,
 				14F24C35222484200062B784 /* TrendingTableViewCell.swift in Sources */,
 				14F24C1B22215B460062B784 /* ResponseApi.swift in Sources */,
 				14F24C0722213EB90062B784 /* MainModel.swift in Sources */,
+				145D4C732225D5840095315D /* FavoriteViewModel.swift in Sources */,
+				145D4C712225D53C0095315D /* FavoriteViewController.swift in Sources */,
 				14F24C6822251C6D0062B784 /* DetailedViewController.swift in Sources */,
 				14F24C6A22251CAB0062B784 /* ExDetailedViewController.swift in Sources */,
 				14F24C002221191C0062B784 /* GitHubApi.swift in Sources */,
@@ -532,6 +547,7 @@
 				14F24C1722214C3F0062B784 /* RequestApiTests.swift in Sources */,
 				14F24C0522213D640062B784 /* DateExtensionTest.swift in Sources */,
 				14F24C2C222400A10062B784 /* MainViewModelTests.swift in Sources */,
+				145D4C772225ED2C0095315D /* RealmStorageTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -689,7 +705,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 933J8KG6Y8;
 				INFOPLIST_FILE = GitWood/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = me.noro.GitWood;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -705,7 +724,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 933J8KG6Y8;
 				INFOPLIST_FILE = GitWood/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = me.noro.GitWood;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -722,7 +744,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 933J8KG6Y8;
 				INFOPLIST_FILE = GitWoodTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = me.noro.GitWoodTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -740,7 +766,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 933J8KG6Y8;
 				INFOPLIST_FILE = GitWoodTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = me.noro.GitWoodTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;

@@ -9,7 +9,7 @@
 import Foundation
 
 class TempStorage:StorageProtocol {
-    typealias queryInput = QueryType
+   
     var cache:[Int: RepoModel] = [:]
     
     func insertOrUpdate(type: StorageRecords, records: [RepoModel]) -> Bool {
@@ -35,7 +35,7 @@ class TempStorage:StorageProtocol {
         return true
     }
     
-    func query(type: StorageRecords, input: queryInput) -> [RepoModel]? {
+    func query(type: StorageRecords, input: QueryType) -> [RepoModel]? {
         
         switch input {
         case .AllFavorite:

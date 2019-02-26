@@ -13,7 +13,7 @@
         <!--Favorite Controller-->
         <scene sceneID="51y-wD-h4B">
             <objects>
-                <viewController id="Pd6-j0-5QN" userLabel="Favorite Controller" sceneMemberID="viewController">
+                <viewController id="Pd6-j0-5QN" userLabel="Favorite Controller" customClass="FavoriteViewController" customModule="GitWood" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GCZ-v2-GvK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -27,6 +27,10 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="t5p-1X-gNk">
                                 <rect key="frame" x="0.0" y="108" width="375" height="510"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Pd6-j0-5QN" id="lRJ-Om-62d"/>
+                                    <outlet property="delegate" destination="Pd6-j0-5QN" id="Ouy-oC-xpI"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -42,6 +46,9 @@
                         <viewLayoutGuide key="safeArea" id="miZ-cF-ghY"/>
                     </view>
                     <navigationItem key="navigationItem" id="l4c-Ns-vTK"/>
+                    <connections>
+                        <outlet property="tableView" destination="t5p-1X-gNk" id="I3U-sp-HAF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9wO-rS-WQ7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

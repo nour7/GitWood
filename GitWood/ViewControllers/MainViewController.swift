@@ -15,7 +15,7 @@ class MainViewController: UIViewController, UITableViewDataSourcePrefetching {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var viewModel : MainViewModel<TempStorage>!
+    var viewModel : MainViewModel<RealmStorage>!
     private var disposeBag = DisposeBag()
     private var stopPrefetching = true
     private let prefetchOffset = 10 // this number has to be dynamic cuase some call may retrun less than 10 items
@@ -24,7 +24,7 @@ class MainViewController: UIViewController, UITableViewDataSourcePrefetching {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel = MainViewModel(storage: TempStorage())
+        viewModel = MainViewModel(storage: RealmStorage())
         self.tableView.register(UINib.init(nibName: "TrendingTableViewCell", bundle: nil), forCellReuseIdentifier: "IdTrendingCell")
         
         loadTrendingReposAsync()

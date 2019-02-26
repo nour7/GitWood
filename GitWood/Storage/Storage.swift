@@ -24,10 +24,9 @@ enum QueryType {
 }
 
 protocol StorageProtocol {
-    associatedtype queryInput
     func insertOrUpdate(type: StorageRecords, records: [RepoModel]) -> Bool
     func remove(type: StorageRecords, id: Int) -> Bool
-    func query(type: StorageRecords, input: queryInput) -> [RepoModel]?
+    func query(type: StorageRecords, input: QueryType) -> [RepoModel]?
 }
 
 

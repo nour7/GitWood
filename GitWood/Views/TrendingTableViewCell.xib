@@ -44,17 +44,13 @@
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Fnc-4Z-XbZ">
                         <rect key="frame" x="241" y="11" width="45" height="63"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="75b-7e-oZj" userLabel="StarBtn">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_toggle_off" translatesAutoresizingMaskIntoConstraints="NO" id="Xqs-NE-TaV">
                                 <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="45" id="T48-ra-TDq"/>
-                                    <constraint firstAttribute="width" secondItem="75b-7e-oZj" secondAttribute="height" multiplier="1:1" id="jt3-Mj-vvm"/>
+                                    <constraint firstAttribute="height" constant="45" id="RJr-0C-iYr"/>
+                                    <constraint firstAttribute="width" constant="45" id="gTz-JF-R53"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="star_toggle_off"/>
-                                <connections>
-                                    <action selector="toggleFavoriteButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="drX-Im-6Pq"/>
-                                </connections>
-                            </button>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12k" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EqF-bH-8bn">
                                 <rect key="frame" x="0.0" y="45" width="45" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -85,7 +81,7 @@
                 <outlet property="detailedLabel" destination="BVz-sn-ZVL" id="rdT-En-R7a"/>
                 <outlet property="forksLabel" destination="EqF-bH-8bn" id="rxY-MN-5ma"/>
                 <outlet property="nameLabel" destination="TEq-vE-Vjt" id="L7f-gA-oh7"/>
-                <outlet property="starButton" destination="75b-7e-oZj" id="IRq-nj-Zn0"/>
+                <outlet property="starImageView" destination="Xqs-NE-TaV" id="o5e-gR-R3Q"/>
             </connections>
             <point key="canvasLocation" x="49.600000000000001" y="87.706146926536732"/>
         </tableViewCell>
