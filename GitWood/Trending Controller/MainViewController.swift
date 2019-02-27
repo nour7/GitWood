@@ -24,7 +24,7 @@ class MainViewController: UIViewController, UITableViewDataSourcePrefetching {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel = MainViewModel(storage: RealmStorage())
+        viewModel = MainViewModel(storage: RealmStorage(), apiVersion: ApiVersion.v3)
         self.tableView.register(UINib.init(nibName: "TrendingTableViewCell", bundle: nil), forCellReuseIdentifier: "IdTrendingCell")
         
         loadTrendingReposAsync()

@@ -26,7 +26,7 @@ class MainViewModel<S: StorageProtocol>: UITableViewModelProtocol, ViewModel {
     typealias cell = TrendingCellModel
     
     let storage: S
-    let apiModel =  APIV3Model()
+    let apiModel: APIInterfaceProtocol!
     
     private var _pageNumber = 0
     private let disposeBag = DisposeBag()
@@ -35,8 +35,9 @@ class MainViewModel<S: StorageProtocol>: UITableViewModelProtocol, ViewModel {
     var items: [repos] = []
     var favoritedRepos: [repos] = []
     
-    init(storage: S) {
+    init(storage: S, apiVersion: ApiVersion) {
         self.storage = storage
+        self.apiModel = apiVersion.model
     }
     
     var pageNumber: Int {

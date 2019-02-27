@@ -29,7 +29,6 @@
 		14F24C1722214C3F0062B784 /* RequestApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F24C1622214C3F0062B784 /* RequestApiTests.swift */; };
 		14F24C19222158FB0062B784 /* APIV3+Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F24C18222158FB0062B784 /* APIV3+Model.swift */; };
 		14F24C1B22215B460062B784 /* Response+Interface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F24C1A22215B460062B784 /* Response+Interface.swift */; };
-		14F24C1E222162620062B784 /* API_Interface_Design_v1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 14F24C1D222162620062B784 /* API_Interface_Design_v1.jpeg */; };
 		14F24C212221E7500062B784 /* Storage+Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F24C202221E7500062B784 /* Storage+Protocol.swift */; };
 		14F24C232222034C0062B784 /* TempStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F24C222222034C0062B784 /* TempStorage.swift */; };
 		14F24C25222204B70062B784 /* RealmStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F24C24222204B70062B784 /* RealmStorage.swift */; };
@@ -85,7 +84,6 @@
 		14F24C1622214C3F0062B784 /* RequestApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestApiTests.swift; sourceTree = "<group>"; };
 		14F24C18222158FB0062B784 /* APIV3+Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIV3+Model.swift"; sourceTree = "<group>"; };
 		14F24C1A22215B460062B784 /* Response+Interface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Response+Interface.swift"; sourceTree = "<group>"; };
-		14F24C1D222162620062B784 /* API_Interface_Design_v1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = API_Interface_Design_v1.jpeg; sourceTree = "<group>"; };
 		14F24C202221E7500062B784 /* Storage+Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Storage+Protocol.swift"; sourceTree = "<group>"; };
 		14F24C222222034C0062B784 /* TempStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempStorage.swift; sourceTree = "<group>"; };
 		14F24C24222204B70062B784 /* RealmStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmStorage.swift; sourceTree = "<group>"; };
@@ -219,7 +217,6 @@
 				14F24BF422210C360062B784 /* Repo Detalied Controller */,
 				14F24C282223F0480062B784 /* Views */,
 				14F24C1F2221E7340062B784 /* Storage */,
-				14F24C1C222161C70062B784 /* Flowcharts */,
 				14F24C0122213B8E0062B784 /* Extensions */,
 				14F24BFE2221190A0062B784 /* Interfaces */,
 				14F24BF322210C2E0062B784 /* Model */,
@@ -284,14 +281,6 @@
 				14F24C372224ADBB0062B784 /* Ext+Int.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		14F24C1C222161C70062B784 /* Flowcharts */ = {
-			isa = PBXGroup;
-			children = (
-				14F24C1D222162620062B784 /* API_Interface_Design_v1.jpeg */,
-			);
-			path = Flowcharts;
 			sourceTree = "<group>";
 		};
 		14F24C1F2221E7340062B784 /* Storage */ = {
@@ -422,7 +411,6 @@
 			files = (
 				14F24BDC22210BC30062B784 /* LaunchScreen.storyboard in Resources */,
 				14F24BD922210BC30062B784 /* Assets.xcassets in Resources */,
-				14F24C1E222162620062B784 /* API_Interface_Design_v1.jpeg in Resources */,
 				14F24BD722210BBF0062B784 /* Main.storyboard in Resources */,
 				14F24C36222484200062B784 /* TrendingTableViewCell.xib in Resources */,
 				14F24BFD222118100062B784 /* mock.json in Resources */,
