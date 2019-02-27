@@ -8,10 +8,6 @@
 
 import Foundation
 
-protocol RepoModel {
-    var id: Int {get set}
-}
-
 struct TrendingResponse: Codable {
     let total_count: Int
     let incomplete_results: Bool

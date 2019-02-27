@@ -9,7 +9,7 @@
 import Foundation
 
 
-enum DetailedTableRow: String {
+enum DetailedCellType: String {
     case Language = "language"
     case Forks = "forks"
     case Stars = "stargazers_count"
@@ -30,10 +30,10 @@ enum DetailedTableRow: String {
     
     static var raws:[String] = [Language.rawValue, Forks.rawValue, Stars.rawValue, CreationDate.rawValue]
     
-     static var all:[DetailedTableRow] = [Language, Forks, Stars, CreationDate]
+     static var all:[DetailedCellType] = [Language, Forks, Stars, CreationDate]
 }
 
-struct DetailedTableRowModel {
+struct RepoDetailsCellModel {
     let icon: String
     let text: String
 }

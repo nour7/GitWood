@@ -10,6 +10,7 @@ import Foundation
 
 
 //create interface for building approprite request by the user. The app now supprts only trending but in future, multiple different requests could be added
+
 enum RequestType: Hashable {
     case Trending(RequestPeriod)
     case Invalid

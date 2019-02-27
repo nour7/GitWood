@@ -26,10 +26,14 @@ class MainViewModel<S: StorageProtocol>: UITableViewModelProtocol, ViewModel {
     typealias cell = TrendingCellModel
     
     let storage: S
-    let apiModel =  API3Model()
+    let apiModel =  APIV3Model()
+    
     private var _pageNumber = 0
     private let disposeBag = DisposeBag()
     private var lastIndexPathItem: Int = -1
+    
+    var items: [repos] = []
+    var favoritedRepos: [repos] = []
     
     init(storage: S) {
         self.storage = storage
@@ -61,8 +65,14 @@ class MainViewModel<S: StorageProtocol>: UITableViewModelProtocol, ViewModel {
             }
     }
     
-    var items: [repos] = []
+   
     
+    
+    func reloadSavedFavorites() {
+        if let savedFavorites = storage.query(type: .Favorite, input: .AllFavorite) as? [repos] {
+           favoritedRepos = savedFavorites
+        }
+    }
     
     
     func cellModelFor(indexPath: IndexPath) -> cell {
@@ -71,12 +81,14 @@ class MainViewModel<S: StorageProtocol>: UITableViewModelProtocol, ViewModel {
             fatalError("Items is empty or index is larger than size")
         }
         
+        let staredRepos = favoritedRepos.contains { $0.id == items[indexPath.item].id}
+        
         return TrendingCellModel(id: items[indexPath.item].id, name: items[indexPath.item].name,
                         detailed: items[indexPath.item].description ?? "No description available",
                         forks:items[indexPath.item].forks,
                         stars:items[indexPath.item].stars,
                         avatarUrl: items[indexPath.item].owner.avatarUrl,
-                        isFavorited: items[indexPath.item].isFavorited ?? false)
+                        isFavorited: staredRepos)
     }
     
    
@@ -137,7 +149,6 @@ class MainViewModel<S: StorageProtocol>: UITableViewModelProtocol, ViewModel {
         if !removeOperation {
             return false
         } else {
-            items[indexPath.item].isFavorited = true
             return true
         }
         
@@ -148,7 +159,7 @@ class MainViewModel<S: StorageProtocol>: UITableViewModelProtocol, ViewModel {
         let insertOperation = storage.insertOrUpdate(type: .Favorite, records: [items[indexPath.item]])
         
         if insertOperation {
-            items[indexPath.item].isFavorited = true
+            favoritedRepos.append(items[indexPath.item])
         }
         
         return insertOperation

@@ -18,17 +18,17 @@ enum ApiError: Error {
 //Current Git API supports version 3 , to void refactoring, create another interface around the versioning
 enum ApiVersion {
     case v3
-    var model: APIModel {
+    var model: APIInterfaceProtocol {
         switch self {
         case .v3:
-            return API3Model()
+            return APIV3Model()
 
         }
     }
     
 }
 
-protocol APIModel {
+protocol APIInterfaceProtocol {
     static var version: Int {get}
     var token: String? {get}
     static var baseUrl:String {get}
@@ -38,7 +38,7 @@ protocol APIModel {
 }
 
 
-extension APIModel {
+extension APIInterfaceProtocol {
     func validate(response: (HTTPURLResponse,Data)) throws -> Bool {
         let (httpResponse, data) = response
         

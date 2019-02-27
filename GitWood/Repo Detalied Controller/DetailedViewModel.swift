@@ -13,7 +13,7 @@ import Foundation
 class DetailedViewModel: ViewModel {
     
     private var repoModel: TrendingRepo? = nil
-    var items: [DetailedTableRowModel] = []
+    var items: [RepoDetailsCellModel] = []
     
     init(model: TrendingRepo?) {
         self.repoModel = model
@@ -41,9 +41,9 @@ class DetailedViewModel: ViewModel {
         return dictionary
     }
     
-    private func serialize(item: (key: String, value: Any)) -> DetailedTableRowModel? {
+    private func serialize(item: (key: String, value: Any)) -> RepoDetailsCellModel? {
        
-        if  !DetailedTableRow.raws.contains(item.key) {
+        if  !DetailedCellType.raws.contains(item.key) {
             return nil
         }
        
@@ -55,9 +55,9 @@ class DetailedViewModel: ViewModel {
             value = item.value as! String
         }
         
-        for row in DetailedTableRow.all {
+        for row in DetailedCellType.all {
             if item.key == row.rawValue {
-                return DetailedTableRowModel(icon: row.iconName, text: value)
+                return RepoDetailsCellModel(icon: row.iconName, text: value)
             }
         }
         

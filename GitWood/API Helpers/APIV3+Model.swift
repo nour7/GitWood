@@ -8,7 +8,8 @@
 
 import Foundation
 
-struct API3Model: APIModel {    
+struct APIV3Model: APIInterfaceProtocol {
+    
     static var version = 3
     var token: String? = nil
     static internal var baseUrl: String = "https://api.github.com/"
@@ -16,7 +17,7 @@ struct API3Model: APIModel {
     func buildRequestUrl(_ requestType: RequestType, page: Int) throws -> URL {
         
         let requestPathExt = requestType.urlPathExt
-        let apiUrl = API3Model.baseUrl.appending(requestPathExt)
+        let apiUrl = APIV3Model.baseUrl.appending(requestPathExt)
         
         guard let requestURL = URL(string: apiUrl) else { throw ApiError.ErrorConstrcutURL("Api URL is wrong. Fix the static var ApiUrl \(apiUrl)") }
         

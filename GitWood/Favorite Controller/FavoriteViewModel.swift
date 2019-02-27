@@ -26,7 +26,7 @@ class FavoriteViewModel<S: StorageProtocol>: UITableViewModelProtocol, ViewModel
     }
     
     func loadFavorites() {
-        
+        items = []
         if let repositories = storage.query(type: .Favorite, input: .AllFavorite ) as? [repos] {
            items.append(contentsOf: repositories)
         } else {
