@@ -31,6 +31,7 @@ class MainViewController: UIViewController, UITableViewDataSourcePrefetching {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
         viewModel.reloadSavedFavorites()
         navigationController?.setNavigationBarHidden(true, animated: false)
     }

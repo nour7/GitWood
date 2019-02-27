@@ -16,12 +16,14 @@ class FavoriteViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         viewModel = FavoriteViewModel(storage: RealmStorage())
         self.tableView.register(UINib.init(nibName: "TrendingTableViewCell", bundle: nil), forCellReuseIdentifier: "IdTrendingCell")
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+         self.tabBarController?.tabBar.isHidden = false
         viewModel.loadFavorites()
         tableView.reloadData()
     }

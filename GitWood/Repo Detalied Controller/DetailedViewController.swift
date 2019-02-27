@@ -20,6 +20,7 @@ class DetailedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         viewModel = DetailedViewModel(model: repo)
         descriptionLabel.text = repo?.description
         navigationTitle.title = repo?.name
@@ -29,6 +30,7 @@ class DetailedViewController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = true
         navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
