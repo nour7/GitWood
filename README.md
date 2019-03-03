@@ -39,11 +39,7 @@ The app uses modular MVVM architecture where API version and Storage can be swap
 
 ### Screenshots:
 
-<p float="middle">
- <img src="https://github.com/nour7/GitWood/blob/master/screen1.png" width="280">
-<img src="https://github.com/nour7/GitWood/blob/master/screen2.png" width="280">
-<img src="https://github.com/nour7/GitWood/blob/master/screen3.png" width="280">
-</p>
+<img src="https://github.com/nour7/GitWood/blob/master/screens.jpg" width="1200">
 
 
 
