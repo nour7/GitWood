@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14458440222BA79600516067 /* IntExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1445843F222BA79600516067 /* IntExtensionTests.swift */; };
 		145D4C712225D53C0095315D /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145D4C702225D53C0095315D /* FavoriteViewController.swift */; };
 		145D4C732225D5840095315D /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145D4C722225D5840095315D /* FavoriteViewModel.swift */; };
 		145D4C752225D9560095315D /* Fav+TableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145D4C742225D9560095315D /* Fav+TableDelegate.swift */; };
@@ -58,6 +59,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1445843F222BA79600516067 /* IntExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtensionTests.swift; sourceTree = "<group>"; };
 		145D4C702225D53C0095315D /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		145D4C722225D5840095315D /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
 		145D4C742225D9560095315D /* Fav+TableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Fav+TableDelegate.swift"; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 				14F24C2B222400A10062B784 /* MainViewModelTests.swift */,
 				14F24C71222546BB0062B784 /* DetailedViewModelTests.swift */,
 				145D4C762225ED2C0095315D /* RealmStorageTest.swift */,
+				1445843F222BA79600516067 /* IntExtensionTests.swift */,
 			);
 			path = GitWoodTests;
 			sourceTree = "<group>";
@@ -586,6 +589,7 @@
 				14F24BE722210BC30062B784 /* GitWoodTests.swift in Sources */,
 				14F24C1722214C3F0062B784 /* RequestApiTests.swift in Sources */,
 				14F24C0522213D640062B784 /* DateExtensionTest.swift in Sources */,
+				14458440222BA79600516067 /* IntExtensionTests.swift in Sources */,
 				14F24C2C222400A10062B784 /* MainViewModelTests.swift in Sources */,
 				145D4C772225ED2C0095315D /* RealmStorageTest.swift in Sources */,
 			);

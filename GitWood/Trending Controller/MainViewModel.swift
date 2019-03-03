@@ -169,6 +169,7 @@ class MainViewModel<S: StorageProtocol>: UITableViewModelProtocol, ViewModel {
     func reset() {
         items = []
         lastIndexPathItem = -1
+        _pageNumber = 0
     }
     
 }

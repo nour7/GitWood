@@ -11,10 +11,10 @@ import XCTest
 
 class GitHubApiTests: XCTestCase {
 
-    var model: APIV3Interface!
+    var model: APIInterfaceProtocol!
     
     override func setUp() {
-       model = APIV3Interface()
+       model = APIV3Model()
     }
     
     override func tearDown() {

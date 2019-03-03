@@ -19,7 +19,7 @@ class MainViewModelTests: XCTestCase {
      var scheduler: ConcurrentDispatchQueueScheduler!
     
     override func setUp() {
-        mainViewModel = MainViewModel(storage: TempStorage())
+        mainViewModel = MainViewModel(storage: TempStorage(), apiVersion: ApiVersion.v3)
         scheduler = ConcurrentDispatchQueueScheduler.init(qos: .default)
         
     }
