@@ -28,11 +28,11 @@ The app uses modular MVVM architecture where API version and Storage can be swap
 ### Missing Features:
 
 - Rich user experience, for example showing friendly animated messages when API calls fails or when requests exceeds limit
-- Implement class than prohibits making new calls to server if https returns empty on invalid, server out of reach , or not internet connection
+- Implement class than prohibits making new calls to server if https returns empty on invalid, server out of reach , or no internet connection
 - iPad user interface & landscape mode if required
 - Dynamic prefetching limit depends on number of JSON object
 - List search 
-- Authentication (aka Token) to call more than 60 calls per hour
+- Authentication (aka Token) to call more than 60 calls limits
 
 
 
