@@ -14,11 +14,11 @@ The app uses modular MVVM architecture where API version and Storage can be swap
 
 ### Main View Controller Architecture
 
-* API version Interface currently supports V3 but the design allows implementing V4 when it get released by Github
+* API version Interface currently supports V3 but the design allows implementing V4 when it gets released by Github
 
 * Storage Interface allows swapping different storage options like realm or core data or just temporary cached storage. 
 
-* RepoModel provides interface for swapping coddle data model required by different viewModels. At this release both favourite and trending using similar model
+* RepoModel provides interface for swapping codable data model required by different viewModels. At this release both favourite and trending view controllers are using similar model
 
 
 <img src="https://github.com/nour7/GitWood/blob/master/GitWoodMainViewC.jpeg" width="1200">
@@ -27,12 +27,12 @@ The app uses modular MVVM architecture where API version and Storage can be swap
 
 ### Missing Features:
 
-- Rich user experience, for example showing friendly animated messages when API calls fails or when requests exceeds limit
-- Implement class than prohibits making new calls to server if https returns empty on invalid, server out of reach , or no internet connection
+- Rich user experience, for example showing friendly animated messages when API fails or when requests exceeds limit
+- Prohibits making new calls to server if https returns empty on invalid, server out of reach , or no internet connection
 - iPad user interface & landscape mode if required
-- Dynamic prefetching limit depends on number of JSON object
+- Setting the limit of dynamic prefetching -- depends on the number of JSON object returned
 - List search 
-- Authentication (aka Token) to call more than 60 calls limits
+- Authentication (aka Token) to create more than 60 calls limits
 
 
 
